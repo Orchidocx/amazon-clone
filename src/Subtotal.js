@@ -5,14 +5,14 @@ import { useStateValue } from './StateProvider';
 function Subtotal() {
   const [{basket}, dispatch] = useStateValue();
   const sum = (key) => ((accumulator, currentValue) => accumulator + (currentValue[key] || 0));
-  const totalPrice = basket.reduce(sum('price'), 0).toFixed(2);
+  const totalPrice = basket.reduce(sum('price'), 0);
   return (
     <div className='subtotal'>
       <CurrencyFormat
       renderText={(value) => (
         <>
           <p>
-            Subtotal ({basket.length} items): <strong>{`$${totalPrice}`}</strong>
+            Subtotal ({basket.length} items): <strong>{value}</strong>
           </p>
           <small className="subtotal__gift">
             <input type="checkbox"/> This order contains a gift
@@ -20,7 +20,7 @@ function Subtotal() {
         </>
       )}
       decimalScale={2}
-      value={0} // assignment
+      value={totalPrice}
       displayType={"text"}
       thousandSeparator={true}
       prefix={"$"}
