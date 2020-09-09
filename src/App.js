@@ -7,8 +7,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Login';
 
 function App() {
-  // BEM Convention
+  
   return (
+    // BEM Convention
     <Router>
       <div className="App">
         <Header/>
