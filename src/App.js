@@ -10,6 +10,7 @@ import Home from './Home';
 import Checkout from './Checkout';
 import Login from './Login';
 import Payment from './Payment';
+import Orders from './Orders';
 
 const promise = loadStripe('pk_test_51HQ0wdK9xTeFTh6A8iLNUquBc38vSctYBcaY8tr3LMim8xh4lnq1ot40QCRWbAR4WPjWG9tXgZONF26GnIChjalk00Uh7kZRgA');
 
@@ -49,6 +50,10 @@ function App() {
             <Elements stripe={promise}>
               <Payment/>
             </Elements>
+          </Route>
+
+          <Route path="/orders">
+            <Orders/>
           </Route>
 
           <Route path="/">
